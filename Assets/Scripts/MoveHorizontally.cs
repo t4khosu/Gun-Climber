@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformController : MonoBehaviour
+public class MoveHorizontally : MonoBehaviour
 {
     [SerializeField] private LayerMask _solidLayer;
     [SerializeField] private float _speed;

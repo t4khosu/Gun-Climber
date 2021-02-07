@@ -485,30 +485,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 18867778, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: _bulletSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 18867778, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: _solidLayerMask.m_Bits
-      value: 4352
-      objectReference: {fileID: 0}
-    - target: {fileID: 18867778, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: _solidLayerMasks.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 18867778, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: _solidLayerMasks.Array.data[0].m_Bits
-      value: 4352
-      objectReference: {fileID: 0}
-    - target: {fileID: 18867778, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: _solidLayerMasks.Array.data[1].m_Bits
-      value: 4096
-      objectReference: {fileID: 0}
-    - target: {fileID: 106240898, guid: 114d44be04a496d44bb1f4224bbb3e16, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3111977498300522384, guid: 114d44be04a496d44bb1f4224bbb3e16,
         type: 3}
       propertyPath: m_RootOrder

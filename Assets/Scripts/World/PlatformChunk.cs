@@ -26,8 +26,8 @@ public class PlatformChunk : Chunk
 
     private GameObject InstantiatePlatformAtRelativePosition(float x, float y, float speed){
         GameObject platform = InstantiateAtGridPosition(_platformPrefab, x, _top + y);
-        PlatformController pc = platform.GetComponent<PlatformController>();
-        pc.Speed = speed;
+        MoveHorizontally mh = platform.GetComponent<MoveHorizontally>();
+        mh.Speed = speed;
 
         return platform;
     }
