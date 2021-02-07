@@ -468,10 +468,15 @@ MonoBehaviour:
   _rightBound: 7
   _grid: {fileID: 1121790151}
   _player: {fileID: 1350578652}
+  _blockTile: {fileID: 11400000, guid: 3a8d108033f092e4d84b13dbdcccfc4c, type: 2}
   _platform: {fileID: 8086129464838322821, guid: bf7b866b75fd0844eb7ceca6a306fd70,
     type: 3}
-  _blockTile: {fileID: 11400000, guid: 3a8d108033f092e4d84b13dbdcccfc4c, type: 2}
-  _blade: {fileID: 6993478871890691246, guid: c895ddfb810993c47bc3595582d4df61, type: 3}
+  _staticEnemy: {fileID: 6993478871890691246, guid: c895ddfb810993c47bc3595582d4df61,
+    type: 3}
+  _movingEnemyX: {fileID: 4629050540137832822, guid: 3bd6bd3736061e14aa5f01c01a6c6e32,
+    type: 3}
+  _followingEnemy: {fileID: 6075141009066352662, guid: 83bdca8c972fd07448f8dcb176065346,
+    type: 3}
 --- !u!1 &1350578652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5381368642232312853, guid: 114d44be04a496d44bb1f4224bbb3e16,
