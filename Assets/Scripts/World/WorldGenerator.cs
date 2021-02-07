@@ -78,14 +78,14 @@ public class WorldGenerator : MonoBehaviour
 
     private Chunk GetRandomChunk(){
         int randomChunk = Random.Range(0, 3);
-        // int randomChunk = 1;
+        // int randomChunk = 2;
 
         if(randomChunk == 0){
             return new HourglassChunk(positionY: _topY, size: 1, area: 0);
         }else if (randomChunk == 1){
             return new TriangleChunk(positionY: _topY, size: 2, area: 0);
         }else{
-            return new PlatformChunk(positionY: _topY, size: 1, area: 0, platformPrefab: _platform, gridY: _cellSize.y);
+            return new PlatformChunk(positionY: _topY, size: 1, area: 0, platformPrefab: _platform);
         }
     }
 

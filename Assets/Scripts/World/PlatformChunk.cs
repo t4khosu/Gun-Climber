@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class PlatformChunk : Chunk
 {
-    protected int _height = 10;
-    protected int _left = 0;
-    protected int _right = 0;
+    protected int _subChunkHeight = 10;
     protected GameObject _platformPrefab;
-    protected float _gridY;
 
-    public PlatformChunk(int positionY, int size, int area, GameObject platformPrefab, float gridY) : base(positionY, size, area){
+    public PlatformChunk(int positionY, int size, int area, GameObject platformPrefab) : base(positionY, size, area){
         _platformPrefab = platformPrefab;
-        _gridY = gridY;
     }
 
     public override void Generate(){
-        GameObject.Instantiate(_platformPrefab, new Vector3(-6 * _gridY, (_top + 3) * _gridY, 0), Quaternion.identity);
-        GameObject.Instantiate(_platformPrefab, new Vector3(-3 * _gridY, (_top + 8) * _gridY, 0), Quaternion.identity);
+        InstantiatePlatformAtRelativePosition(
+            x: -3, y: 3, speed: Random.Range(5.0f, 20.0f)
+        );
 
-        _top += 10;
+        InstantiatePlatformAtRelativePosition(
+            x: 0, y: 8, speed: Random.Range(5.0f, 20.0f)
+        );
+
+        _top += _subChunkHeight;
         GenerateWalls(height: _top);
+    }
+
+    private GameObject InstantiatePlatformAtRelativePosition(float x, float y, float speed){
+        GameObject platform = InstantiateAtGridPosition(_platformPrefab, x, _top + y);
+        PlatformController pc = platform.GetComponent<PlatformController>();
+        pc.Speed = speed;
+
+        return platform;
     }
 }

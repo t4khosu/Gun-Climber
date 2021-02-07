@@ -66,10 +66,6 @@ public abstract class Chunk
             WorldGenerator.WG.RightBound, _positionY,
             WorldGenerator.WG.RightBound, height - 1
         );
-        // GenerateLine(
-        //     0, _positionY,
-        //     0, height - 1
-        // );
     }
 
     protected void AddBladeAt(int gridX, int gridY){
@@ -80,6 +76,17 @@ public abstract class Chunk
             WorldGenerator.WG.Blade,
             new Vector3(worldX, worldY, 0),
             Quaternion.identity
+        );
+    }
+
+    protected GameObject InstantiateAtGridPosition(GameObject prefab, float x, float y){
+        return GameObject.Instantiate(
+            prefab,
+            new Vector3(
+                x * WorldGenerator.WG.CellSize.x,
+                y * WorldGenerator.WG.CellSize.y,
+                0
+            ), Quaternion.identity
         );
     }
 
