@@ -5,27 +5,25 @@ using UnityEngine;
 public class PlatformChunk : Chunk
 {
     protected int _subChunkHeight = 10;
-    protected GameObject _platformPrefab;
 
-    public PlatformChunk(int positionY, int size, int area, GameObject platformPrefab) : base(positionY, size, area){
-        _platformPrefab = platformPrefab;
+    public PlatformChunk(int positionY, int size, int area) : base(positionY, size, area){
     }
 
     public override void Generate(){
-        InstantiatePlatformAtRelativePosition(
+        InstantiatePlatformAtRGP(
             x: -3, y: 3, speed: Random.Range(5.0f, 20.0f)
         );
 
-        InstantiatePlatformAtRelativePosition(
+        InstantiatePlatformAtRGP(
             x: 0, y: 8, speed: Random.Range(5.0f, 20.0f)
         );
 
-        _top += _subChunkHeight;
-        GenerateWalls(height: _top);
+        _topY += _subChunkHeight;
+        GenerateWallsAtRP(height: _subChunkHeight);
     }
 
-    private GameObject InstantiatePlatformAtRelativePosition(float x, float y, float speed){
-        GameObject platform = InstantiateAtGridPosition(_platformPrefab, x, _top + y);
+    private GameObject InstantiatePlatformAtRGP(float x, float y, float speed){
+        GameObject platform = InstantiateAtRGP(WorldGenerator.WG.Platform, x, y);
         MoveHorizontally mh = platform.GetComponent<MoveHorizontally>();
         mh.Speed = speed;
 

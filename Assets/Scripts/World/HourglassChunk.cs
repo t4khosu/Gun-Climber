@@ -13,7 +13,7 @@ public class HourglassChunk : TriangleChunk
     public override void Generate(){
 
         for(int i = 0; i < _size; i++){
-            int yPos = _positionY + 2 + i * (_height + 1);
+            int yPos = _bottomY + 2 + i * (_height + 1);
 
             GenerateTriangle(
                 height: _height,
@@ -29,21 +29,21 @@ public class HourglassChunk : TriangleChunk
                 xPos: _right
             );
 
-            AddBladeAt(
+            AddBladeAtRGP(
                 _left + _height / 2 + 2,
-                _positionY + _height / 2 + 2
+                _bottomY + _height / 2 + 2
             );
 
-            AddBladeAt(
+            AddBladeAtRGP(
                 _right - _height / 2 - 2,
-                _positionY + _height / 2 + 2
+                _bottomY + _height / 2 + 2
             );
 
-            _top = yPos + _height + 1;
+            _topY = yPos + _height + 1;
         }
 
 
 
-        GenerateWalls(height: _top);
+        GenerateWallsAtRP(height: _topY);
     }
 }

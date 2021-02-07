@@ -18,7 +18,7 @@ public class TriangleChunk : Chunk
         int direction = 1;
         for(int i = 0; i < _size; i++){
             int xPos = i % 2 == 0 ? _left : _right;
-            int yPos = _positionY + 2 + i * (_height + 1);
+            int yPos = _bottomY + 2 + i * (_height + 1);
 
             GenerateTriangle(
                 height: _height,
@@ -27,17 +27,17 @@ public class TriangleChunk : Chunk
                 xPos: xPos
             );
 
-            AddBladeAt(
+            AddBladeAtRGP(
                 xPos + direction * _height + direction * 2,
                 yPos + _height / 2 + 2
             );
 
 
-            _top = yPos + _height + 1;
+            _topY = yPos + _height + 1;
             direction *= -1;
         }
 
-        GenerateWalls(height: _top);
+        GenerateWallsAtRP(height: _topY);
     }
 
     protected void GenerateTriangle(int height, int startPosY, int narrow, int xPos){
@@ -51,7 +51,7 @@ public class TriangleChunk : Chunk
         while(bottom <= top){
             for(int i = 0; i < narrow; i += 1){
                 int newX = xPos + direction * (relX + i);
-                GenerateLine(newX, bottom, newX, top);
+                GenerateLineAtRP(newX, bottom, newX, top);
             }
             
             relX += narrow;
