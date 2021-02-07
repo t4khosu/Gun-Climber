@@ -29,12 +29,12 @@ public class HourglassChunk : TriangleChunk
                 xPos: _right
             );
 
-            AddBladeAtRGP(
+            InstantiateStaticEnemyAtRGP(
                 _left + _height / 2 + 2,
                 _bottomY + _height / 2 + 2
             );
 
-            AddBladeAtRGP(
+            InstantiateStaticEnemyAtRGP(
                 _right - _height / 2 - 2,
                 _bottomY + _height / 2 + 2
             );

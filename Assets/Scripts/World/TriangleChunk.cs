@@ -27,7 +27,7 @@ public class TriangleChunk : Chunk
                 xPos: xPos
             );
 
-            AddBladeAtRGP(
+            InstantiateStaticEnemyAtRGP(
                 xPos + direction * _height + direction * 2,
                 yPos + _height / 2 + 2
             );

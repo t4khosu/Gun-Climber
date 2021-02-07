@@ -10,22 +10,22 @@ public class PlatformChunk : Chunk
     }
 
     public override void Generate(){
-        InstantiatePlatformAtRGP(
-            x: -3, y: 3, speed: Random.Range(5.0f, 20.0f)
-        );
+        InstantiatePlatformAtRGP(-3, 3);
 
-        InstantiatePlatformAtRGP(
-            x: 0, y: 8, speed: Random.Range(5.0f, 20.0f)
-        );
+        InstantiateMovingEnemyXAtRGP(5);
+        InstantiateStaticEnemyAtRandomRGP(7);
+        InstantiateStaticEnemyAtRandomRGP(10);
+
+        InstantiatePlatformAtRGP(0, 8);
 
         _topY += _subChunkHeight;
         GenerateWallsAtRP(height: _subChunkHeight);
     }
 
-    private GameObject InstantiatePlatformAtRGP(float x, float y, float speed){
+    private GameObject InstantiatePlatformAtRGP(float x, float y){
         GameObject platform = InstantiateAtRGP(WorldGenerator.WG.Platform, x, y);
         MoveHorizontally mh = platform.GetComponent<MoveHorizontally>();
-        mh.Speed = speed;
+        mh.Speed = Random.Range(5.0f, 20.0f);
 
         return platform;
     }

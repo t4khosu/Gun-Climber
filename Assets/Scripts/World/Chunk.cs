@@ -73,8 +73,8 @@ public abstract class Chunk
         return GameObject.Instantiate(
             prefab,
             new Vector3(
-                x * WorldGenerator.WG.CellSize.x,
-                y * WorldGenerator.WG.CellSize.y + _bottomY * WorldGenerator.WG.CellSize.y,
+                x * WorldGenerator.WG.CellSize.x + WorldGenerator.WG.CellSize.x / 2,
+                y * WorldGenerator.WG.CellSize.y + WorldGenerator.WG.CellSize.y / 2 + _bottomY * WorldGenerator.WG.CellSize.y,
                 0
             ), Quaternion.identity
         );
@@ -91,8 +91,39 @@ public abstract class Chunk
         );
     }
 
-    protected void AddBladeAtRGP(int x, int y){
-        InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, x, y);
+    protected int FindFreeXAtRGP(int y){
+        int xGridPos = Random.Range(WorldGenerator.WG.LeftBound + 1, WorldGenerator.WG.RightBound);
+        int tries = 0;
+
+        while(WorldGenerator.WG.BlocksTilemap.GetTile(new Vector3Int(xGridPos, y, 0)) != null){
+            xGridPos = Random.Range(WorldGenerator.WG.LeftBound, WorldGenerator.WG.RightBound);
+            tries += 1;
+
+            if(tries > 100){
+                return -100;
+            }
+        }
+
+        return xGridPos;
+    }
+
+    protected GameObject InstantiateMovingEnemyXAtRGP(int y){
+        int xGridPos = FindFreeXAtRGP(y);
+        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.MovingEnemyX, xGridPos, y);
+        MoveHorizontally mh = enemy.GetComponent<MoveHorizontally>();
+        mh.Speed = Random.Range(5.0f, 20.0f);
+
+        return enemy;
+    }
+
+    protected GameObject InstantiateStaticEnemyAtRGP(int x, int y){
+        return InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, x, y);
+    }
+
+    protected GameObject InstantiateStaticEnemyAtRandomRGP(int y){
+        int xGridPos = FindFreeXAtRGP(y);
+        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, xGridPos, y);
+        return enemy;
     }
 
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4629050540137832826}
   - component: {fileID: 4629050540137832825}
   - component: {fileID: 4629050540137832827}
+  - component: {fileID: 5037086349499325839}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Death
@@ -137,3 +138,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _speed: 8
+--- !u!114 &5037086349499325839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4629050540137832822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1677d517f83b38d44a248563e3abf30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
