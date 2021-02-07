@@ -217,11 +217,11 @@ MonoBehaviour:
   _solidLayerMask:
     serializedVersion: 2
     m_Bits: 4352
-  _onGroundMoveSpeed: 12
-  _inAirMoveSpeed: 12
+  _onGroundMoveSpeed: 14
+  _inAirMoveSpeed: 14
   _jumpVelocity: 14
   _shootForce: 25
-  _bulletSpeed: 1500
+  _bulletSpeed: 20
   _bulletPrefab: {fileID: 2341427447573754347, guid: f63bb58a7d7b53b4988f2cfe521f893b,
     type: 3}
 --- !u!61 &18867781
