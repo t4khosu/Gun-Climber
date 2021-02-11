@@ -50,15 +50,20 @@ public class BulletController : MonoBehaviour
             contactNormal.y = Mathf.Abs(contactNormal.y * 0.5f) * Mathf.Sign(this._dir.y);
             Vector2 tilePosition = contactNormal + other.contacts[0].point;
 
-            WorldGenerator.WG.BlocksTilemap.SetTile(
-                WorldGenerator.WG.BlocksTilemap.WorldToCell(tilePosition), 
-                null
-            );
+            DestroyBlockAt(tilePosition);
             Destroy(gameObject); 
         }else if(other.gameObject.layer == LayerMask.NameToLayer("Platform")){
             Destroy(gameObject); 
         }
         
+    }
+
+    private void DestroyBlockAt(Vector2 position){
+        WorldGenerator.WG.BlocksTilemap.SetTile(
+            WorldGenerator.WG.BlocksTilemap.WorldToCell(position), 
+            null
+        );
+        GameManager.GM.IncreaseDestroyedBlocksByOne();
     }
 
 }

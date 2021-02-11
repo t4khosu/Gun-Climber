@@ -12,6 +12,7 @@ public abstract class Chunk
     protected int _area;
 
     protected ArrayList _blockCoords;
+    protected int _subChunkHeight;
     
     public int TopY{get {return _topY;}}
 
@@ -91,11 +92,20 @@ public abstract class Chunk
         );
     }
 
+    protected bool PositionHasTile(int x, int y){
+        foreach(Vector3Int tilePos in _blockCoords){
+            if(tilePos.x == x && tilePos.y == y){
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected int FindFreeXAtRGP(int y){
         int xGridPos = Random.Range(WorldGenerator.WG.LeftBound + 1, WorldGenerator.WG.RightBound);
         int tries = 0;
 
-        while(WorldGenerator.WG.BlocksTilemap.GetTile(new Vector3Int(xGridPos, y, 0)) != null){
+        while(PositionHasTile(xGridPos, y)){
             xGridPos = Random.Range(WorldGenerator.WG.LeftBound, WorldGenerator.WG.RightBound);
             tries += 1;
 

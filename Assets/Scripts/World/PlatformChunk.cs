@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlatformChunk : Chunk
 {
-    protected int _subChunkHeight = 10;
-
     public PlatformChunk(int positionY, int size, int area) : base(positionY, size, area){
+        _subChunkHeight = 10;
     }
 
     public override void Generate(){

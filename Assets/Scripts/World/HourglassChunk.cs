@@ -6,44 +6,39 @@ public class HourglassChunk : TriangleChunk
 {
 
     public HourglassChunk(int positionY, int size, int area) : base(positionY, size, area){
-        _left = WorldGenerator.WG.LeftBound;
-        _right = WorldGenerator.WG.RightBound;
+        _subChunkHeight = 9;
     }
 
     public override void Generate(){
 
         for(int i = 0; i < _size; i++){
-            int yPos = _bottomY + 2 + i * (_height + 1);
-
-            GenerateTriangle(
-                height: _height,
-                startPosY: yPos,
-                narrow: 1,
-                xPos: _left
+            GenerateLeftTriangleRGP(
+                y: 2,
+                height: _subChunkHeight - 2,
+                stretch: 1
             );
 
-            GenerateTriangle(
-                height: _height,
-                startPosY: yPos,
-                narrow: -1,
-                xPos: _right
+            GenerateRightTriangleRGP(
+                y: 2,
+                height: _subChunkHeight - 2,
+                stretch: 1
             );
 
             InstantiateStaticEnemyAtRGP(
-                _left + _height / 2 + 2,
-                _bottomY + _height / 2 + 2
+                WorldGenerator.WG.LeftBound + _subChunkHeight / 2 + 1,
+                _subChunkHeight / 2 + 1
             );
 
             InstantiateStaticEnemyAtRGP(
-                _right - _height / 2 - 2,
-                _bottomY + _height / 2 + 2
+                WorldGenerator.WG.RightBound - _subChunkHeight / 2 - 1,
+                _subChunkHeight / 2 + 1
             );
 
-            _topY = yPos + _height + 1;
+            InstantiateMovingEnemyXAtRGP(7);
+
+            _topY += _subChunkHeight;
         }
 
-
-
-        GenerateWallsAtRP(height: _topY);
+        GenerateWallsAtRP(height: _subChunkHeight * _size);
     }
 }

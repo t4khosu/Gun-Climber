@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager GM;
     
-    [HideInInspector] public float _maxHeight = 0.0f;
     [SerializeField] private GameObject _player;
+
+    private float _maxHeight = 0.0f;
+    private int _destroyedBlocks = 0;
     private PlayerController _playerController;
     private float _playerStartY = 0.0f;
 
@@ -36,8 +38,8 @@ public class GameManager : MonoBehaviour
         Camera.main.transform.Translate(Vector3.up * Time.deltaTime * _activeCameraSpeed);
     }
 
-    public static bool containsLayerMask(LayerMask objectLayer, LayerMask layers){
-        return (layers & 1 << objectLayer) == 1 << objectLayer;
+    public void IncreaseDestroyedBlocksByOne(){
+        _destroyedBlocks += 1;
     }
 
     public void ActivateCameraMovement(){
