@@ -25,7 +25,6 @@ public class PlatformChunk : Chunk
         GameObject platform = InstantiateAtRGP(WorldGenerator.WG.Platform, x, y);
         MoveHorizontally mh = platform.GetComponent<MoveHorizontally>();
         mh.Speed = Random.Range(5.0f, 20.0f);
-
         return platform;
     }
 }

@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
 
         if(_shoot){
             Shoot();
-            GameManager.GM.ActivateCameraMovement();
             _shoot = false;
         }
     }
 
     private void Shoot(){
+        GameManager.GM.ActivateCameraMovement();
         Vector2 direction = (Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         direction.Normalize();
 
