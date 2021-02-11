@@ -143,6 +143,12 @@ public abstract class Chunk
         return InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, x, y);
     }
 
+    protected GameObject InstantiateFollowingEnemyAtRandomRGP(int y){
+        int xGridPos = FindFreeXAtRGP(y);
+        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.FollowingEnemy, xGridPos, y);
+        return enemy;
+    }
+
     protected GameObject InstantiateStaticEnemyAtRandomRGP(int y){
         int xGridPos = FindFreeXAtRGP(y);
         GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, xGridPos, y);

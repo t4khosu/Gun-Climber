@@ -12,7 +12,7 @@ public class PlatformChunk : Chunk
         InstantiatePlatformAtRGP(-3, 3);
 
         InstantiateMovingEnemyXAtRGP(5);
-        InstantiateStaticEnemyAtRandomRGP(7);
+        InstantiateFollowingEnemyAtRandomRGP(7);
         InstantiateStaticEnemyAtRandomRGP(10);
 
         InstantiatePlatformAtRGP(0, 8);

@@ -9,7 +9,7 @@ public class EnemyFollowerController : MonoBehaviour
     private Rigidbody2D _rb2d;
     private SpriteRenderer _sprite;
 
-    private float _speed = 11f;
+    private float _speed = 21f;
     private float _timeAlive = 0.0f;
     private float _maxSecAlive = 3.5f;
 
