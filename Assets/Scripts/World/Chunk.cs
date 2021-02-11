@@ -92,20 +92,33 @@ public abstract class Chunk
         );
     }
 
-    protected bool PositionHasTile(int x, int y){
-        foreach(Vector3Int tilePos in _blockCoords){
-            if(tilePos.x == x && tilePos.y == y){
+    protected bool XPositionInTiles(int x, ArrayList tiles){
+        foreach(Vector3Int tilePos in tiles){
+            if(tilePos.x == x){
                 return true;
             }
         }
         return false;
     }
 
+    protected ArrayList GetTilesAtRGLine(int y){
+        ArrayList tiles = new ArrayList();
+
+        foreach(Vector3Int tilePos in _blockCoords){
+            if(tilePos.y == y + _bottomY){
+                tiles.Add(tilePos);
+            }
+        }
+
+        return tiles;
+    }
+
     protected int FindFreeXAtRGP(int y){
         int xGridPos = Random.Range(WorldGenerator.WG.LeftBound + 1, WorldGenerator.WG.RightBound);
         int tries = 0;
 
-        while(PositionHasTile(xGridPos, y)){
+        ArrayList tilesAtY = GetTilesAtRGLine(y);
+        while(XPositionInTiles(xGridPos, tilesAtY)){
             xGridPos = Random.Range(WorldGenerator.WG.LeftBound, WorldGenerator.WG.RightBound);
             tries += 1;
 
