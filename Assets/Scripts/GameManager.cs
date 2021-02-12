@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     private PlayerController _playerController;
     private float _playerStartY = 0.0f;
 
-    private float _activeCameraSpeed = 0.0f;
+    private bool _cameraStarted = false;
     private float _cameraSpeed = 5.0f;
+    private float _maxCameraSpeed = 15.0f;
+    private float _cameraSpeedIncreasePerSec = 0.1f;
 
     public PlayerController PlayerControllerObject{
         get{return _playerController;}
@@ -37,10 +39,26 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
+        SetPlayerMaxHeight();
+        MoveCamera();
+    }
+
+    private void SetPlayerMaxHeight(){
         float newHeight = _playerController.transform.position.y - _playerStartY;
         _maxHeight = Mathf.Max(_maxHeight, newHeight);
+    }
 
-        Camera.main.transform.Translate(Vector3.up * Time.deltaTime * _activeCameraSpeed);
+    private void MoveCamera(){
+        if(!_cameraStarted){
+            return;
+        }
+        
+        Camera.main.transform.Translate(Vector3.up * Time.deltaTime * _cameraSpeed);
+
+        if(_cameraSpeed < _maxCameraSpeed){
+            _cameraSpeed = Mathf.Min(_maxCameraSpeed, _cameraSpeed + _cameraSpeedIncreasePerSec * Time.deltaTime);
+        }
+
     }
 
     public void IncreaseDestroyedBlocksByOne(){
@@ -48,10 +66,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void ActivateCameraMovement(){
-        _activeCameraSpeed = _cameraSpeed;
+        _cameraStarted = true;
     }
 
     public void DeactivateCameraMovement(){
-        _activeCameraSpeed = 0;
+        _cameraStarted = false;
     }
 }
