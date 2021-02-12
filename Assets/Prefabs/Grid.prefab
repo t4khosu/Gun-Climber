@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3032479327332957689}
   - component: {fileID: 3032479327332957669}
   - component: {fileID: 3032479327332957668}
-  - component: {fileID: 1241728039053636202}
   m_Layer: 8
   m_Name: BlockTilemap
   m_TagString: Untagged
@@ -63,18 +62,17 @@ Tilemap:
       e11: 0
       e12: 0
       e13: NaN
-      e20: -90987010
+      e20: 1.7096539
       e21: 0
-      e22: 1.2933328e+14
-      e23: 9.483257e-13
-      e30: 7.06e-43
+      e22: 0.3852501
+      e23: 2.0345027e+20
+      e30: 6.49e-43
       e31: 0
-      e32: 7.08e-43
-      e33: 4.5905e-41
+      e32: 6.49e-43
+      e33: 4.5904e-41
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: -0.000000001818993, g: -0.000000001818993, b: -0.000000001818993,
-      a: -0.000000001818993}
+    m_Data: {r: -5.0532074, g: -5.0532074, b: -5.0532074, a: -5.0532074}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -207,18 +205,6 @@ CompositeCollider2D:
     m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
---- !u!114 &1241728039053636202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3032479327332957691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c91fc6971ca1f43bd8f139d4fa9958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3032479327868589520
 GameObject:
   m_ObjectHideFlags: 0

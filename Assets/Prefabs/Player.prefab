@@ -220,7 +220,7 @@ MonoBehaviour:
   _onGroundMoveSpeed: 14
   _inAirMoveSpeed: 14
   _jumpVelocity: 14
-  _shootForce: 25
+  _shootForce: 22
   _bulletSpeed: 20
   _bulletPrefab: {fileID: 2341427447573754347, guid: f63bb58a7d7b53b4988f2cfe521f893b,
     type: 3}
