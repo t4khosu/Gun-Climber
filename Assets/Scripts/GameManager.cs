@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
         get{return _playerController;}
     }
 
+    public float CameraSpeed{
+        set{_cameraSpeed = value;}
+        get{return _cameraSpeed;}
+    }
+
     void Awake()
     {
         if(GM == null){

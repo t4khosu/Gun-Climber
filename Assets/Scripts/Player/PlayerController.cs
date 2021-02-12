@@ -18,12 +18,18 @@ public class PlayerController : MonoBehaviour
     private float _moveDir = 0;
     private bool _jump = false;
     private bool _shoot = false;
+    private bool _isInvincible = false;
 
     private Rigidbody2D _rb2d;
     private BoxCollider2D _boxCollider;
 
     public Vector3 Velocity{
         get{return _rb2d.velocity;}
+    }
+
+    public bool IsInvincible{
+        set{_isInvincible=value;}
+        get{return _isInvincible;}
     }
 
     void Awake(){
@@ -63,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot(){
         GameManager.GM.ActivateCameraMovement();
+        
         Vector2 direction = (Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         direction.Normalize();
 
@@ -117,6 +124,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if(_isInvincible){
+            return;
+        }
+
         if(other.tag == "Death"){
             gameObject.SetActive(false);
             GameManager.GM.DeactivateCameraMovement();
