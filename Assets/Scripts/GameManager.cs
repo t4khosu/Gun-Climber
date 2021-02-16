@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     private float _maxCameraSpeed = 15.0f;
     private float _cameraSpeedIncreasePerSec = 0.1f;
 
+    private bool _fixedCamera = false;
+
     public PlayerController PlayerControllerObject{
         get{return _playerController;}
     }
@@ -26,6 +28,11 @@ public class GameManager : MonoBehaviour
     public float CameraSpeed{
         set{_cameraSpeed = value;}
         get{return _cameraSpeed;}
+    }
+
+    public bool FixedCamera{
+        set {_fixedCamera = value;}
+        get {return _fixedCamera;}
     }
 
     void Awake()
@@ -66,7 +73,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void ActivateCameraMovement(){
-        _cameraStarted = true;
+        _cameraStarted = !_fixedCamera;
     }
 
     public void DeactivateCameraMovement(){

@@ -7,9 +7,6 @@ using UnityEngine;
 public class GameManagerEditor : Editor
 {
 
-    bool playerInvincibleButton = false;
-    float cameraSpeed = 0.0f;
-
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
 
@@ -17,6 +14,10 @@ public class GameManagerEditor : Editor
 
         PlayerController.Player.IsInvincible = EditorGUILayout.Toggle(
             "Invincible Player", PlayerController.Player.IsInvincible
+        );
+
+        GameManager.GM.FixedCamera = EditorGUILayout.Toggle(
+            "Fixed Camera", GameManager.GM.FixedCamera
         );
 
         GameManager.GM.CameraSpeed = EditorGUILayout.Slider(
