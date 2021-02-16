@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140249863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.4, y: -13.6, z: 3.267911}
-  m_LocalScale: {x: 400, y: 1, z: 1}
+  m_LocalPosition: {x: 0.03, y: -11.651, z: 3.267911}
+  m_LocalScale: {x: 279.95477, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 24
+  m_AssetsPPU: 16
   m_RefResolutionX: 1024
   m_RefResolutionY: 768
   m_UpscaleRT: 0
@@ -328,7 +328,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16.875
+  orthographic size: 23.98086
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -375,8 +375,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -22, y: 17}
-  - {x: 22, y: 17}
+  - {x: -32, y: 24}
+  - {x: 32, y: 24}
 --- !u!1 &671318506
 GameObject:
   m_ObjectHideFlags: 0
