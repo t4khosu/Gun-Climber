@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb2d;
     private BoxCollider2D _boxCollider;
+    private Animator _animator;
 
     public Vector3 Velocity{
         get{return _rb2d.velocity;}
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         _rb2d = transform.GetComponent<Rigidbody2D>();
         _boxCollider = transform.GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -51,6 +53,8 @@ public class PlayerController : MonoBehaviour
         _moveDir = Input.GetAxis("Horizontal");
         _jump = Input.GetAxis("Vertical") > 0;
         _shoot = _shoot || Input.GetMouseButtonDown(0);
+
+        _animator.SetFloat("Move X", _moveDir);
     }
 
     void FixedUpdate(){
