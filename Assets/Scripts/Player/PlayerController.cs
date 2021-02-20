@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     
     private float _moveDir = 0;
+    private float _lookDir = 0;
     private bool _jump = false;
     private bool _shoot = false;
     private bool _isInvincible = false;
@@ -54,7 +55,14 @@ public class PlayerController : MonoBehaviour
         _jump = Input.GetAxis("Vertical") > 0;
         _shoot = _shoot || Input.GetMouseButtonDown(0);
 
-        _animator.SetFloat("Move X", _moveDir);
+        if(_moveDir != 0){
+            _lookDir = _moveDir < 0 ? -1 : 1;
+        }
+
+        _animator.SetFloat("Look Direction", _lookDir);
+        _animator.SetFloat("Move Speed", Mathf.Abs(_moveDir));
+
+        
     }
 
     void FixedUpdate(){
