@@ -114,12 +114,12 @@ public abstract class Chunk
     }
 
     protected int FindFreeXAtRGP(int y){
-        int xGridPos = Random.Range(WorldGenerator.WG.LeftBound + 1, WorldGenerator.WG.RightBound);
+        int xGridPos = Random.Range(WorldGenerator.WG.LeftBound+1, WorldGenerator.WG.RightBound);
         int tries = 0;
 
         ArrayList tilesAtY = GetTilesAtRGLine(y);
         while(XPositionInTiles(xGridPos, tilesAtY)){
-            xGridPos = Random.Range(WorldGenerator.WG.LeftBound, WorldGenerator.WG.RightBound);
+            xGridPos = Random.Range(WorldGenerator.WG.LeftBound+1, WorldGenerator.WG.RightBound);
             tries += 1;
 
             if(tries > 100){
@@ -127,10 +127,19 @@ public abstract class Chunk
             }
         }
 
+        if(xGridPos == WorldGenerator.WG.LeftBound){
+            Debug.Log("Problem");
+            Debug.Log("Number of Tiles in this line: " + tilesAtY.Count);
+            foreach(Vector3Int tile in tilesAtY){
+                Debug.Log(tile.x + " | " + tile.y);
+            }
+        }
+
         return xGridPos;
     }
 
     protected GameObject InstantiateMovingEnemyXAtRGP(int y){
+        
         int xGridPos = FindFreeXAtRGP(y);
         GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.MovingEnemyX, xGridPos, y);
         MoveHorizontally mh = enemy.GetComponent<MoveHorizontally>();

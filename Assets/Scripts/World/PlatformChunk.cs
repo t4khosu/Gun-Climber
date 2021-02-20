@@ -9,6 +9,8 @@ public class PlatformChunk : Chunk
     }
 
     public override void Generate(){
+        GenerateWallsAtRP(height: _subChunkHeight);
+        
         InstantiatePlatformAtRGP(-3, 3);
 
         InstantiateMovingEnemyXAtRGP(5);
@@ -18,7 +20,7 @@ public class PlatformChunk : Chunk
         InstantiatePlatformAtRGP(0, 8);
 
         _topY += _subChunkHeight;
-        GenerateWallsAtRP(height: _subChunkHeight);
+        
     }
 
     private GameObject InstantiatePlatformAtRGP(float x, float y){
