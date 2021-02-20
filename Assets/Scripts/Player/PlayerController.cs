@@ -61,16 +61,16 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetFloat("Look Direction", _lookDir);
         _animator.SetFloat("Move Speed", Mathf.Abs(_moveDir));
-
-        
     }
 
     void FixedUpdate(){
         if(IsGrounded()){
             CheckMoveXOnGround();
             CheckJump();
+            _animator.SetBool("In Air", false);
         }else{
             CheckMoveXInAir();
+            _animator.SetBool("In Air", true);
         }
 
         if(_shoot){

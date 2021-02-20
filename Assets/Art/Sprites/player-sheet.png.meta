@@ -29,6 +29,12 @@ TextureImporter:
   - first:
       213: -1287147658385010218
     second: player-sheet_8
+  - first:
+      213: -7317790281501761798
+    second: player-sheet_9
+  - first:
+      213: -2197736208244206388
+    second: player-sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -310,6 +316,48 @@ TextureImporter:
       bones: []
       spriteID: 6d15c783602232ee0800000000000000
       internalID: -1287147658385010218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe1842a28cf17a90800000000000000
+      internalID: -7317790281501761798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 0
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4179d00921081e0800000000000000
+      internalID: -2197736208244206388
       vertices: []
       indices: 
       edges: []
