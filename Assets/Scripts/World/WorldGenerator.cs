@@ -69,8 +69,8 @@ public class WorldGenerator : MonoBehaviour
     }
 
     private Chunk GetRandomChunk(){
-        // int randomChunk = Random.Range(0, 3);
-        int randomChunk = 2;
+        int randomChunk = Random.Range(0, 3);
+        // int randomChunk = 2;
 
         if(randomChunk == 0){
             return new HourglassChunk(positionY: _topY, size: 1, area: 0);
