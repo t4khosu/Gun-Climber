@@ -8,6 +8,7 @@ public class EnemyFollowerController : MonoBehaviour
     private Vector2 _dir;
     private Rigidbody2D _rb2d;
     private SpriteRenderer _sprite;
+    private Animator _animator;
 
     private float _speed = 21f;
     private float _timeAlive = 0.0f;
@@ -17,6 +18,9 @@ public class EnemyFollowerController : MonoBehaviour
     {
         _rb2d = GetComponent<Rigidbody2D>();
         _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+
+        _animator.enabled = false;
     }
 
     void Update()
@@ -51,6 +55,6 @@ public class EnemyFollowerController : MonoBehaviour
     private void StartFollowing(){
         _dir = (Vector2) (PlayerController.Player.transform.position - transform.position);
         _dir.Normalize();
-        _sprite.color = new Color (1, 0, 0, 1); 
+        _animator.enabled = true;
     }
 }
