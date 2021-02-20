@@ -31,6 +31,21 @@ BlendTree:
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!206 &-6777437690518906839
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs: []
+  m_BlendParameter: Look Direction
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!1101 &-6180277765836081298
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -48,11 +63,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.5081967
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -129,7 +144,7 @@ AnimatorStateMachine:
     m_Position: {x: 330, y: 240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4576438099350071254}
-    m_Position: {x: 320, y: 120, z: 0}
+    m_Position: {x: 290, y: 60, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -222,11 +237,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.9918033
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -269,7 +284,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: fbbd2f1266d672f47a3800922e6db1d5, type: 2}
     m_Threshold: -1
-    m_Position: {x: 0, y: 0}
+    m_Position: {x: -0.96, y: -0.03}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Look Direction
@@ -277,13 +292,13 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 18b49de0dbff70a469731c5ef8e18452, type: 2}
     m_Threshold: 1
-    m_Position: {x: 0, y: 0}
+    m_Position: {x: 1.01, y: 0.2}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Look Direction
     m_Mirror: 0
   m_BlendParameter: Look Direction
-  m_BlendParameterY: Look Direction
+  m_BlendParameterY: Move Speed
   m_MinThreshold: -1
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0
@@ -390,11 +405,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_ExitTime: 0.5625
   m_HasExitTime: 0
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1

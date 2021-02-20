@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4629050540137832824}
   - component: {fileID: 4629050540137832823}
   - component: {fileID: 4629050540137832826}
-  - component: {fileID: 4629050540137832825}
   - component: {fileID: 4629050540137832827}
   - component: {fileID: 5037086349499325839}
+  - component: {fileID: -3210495349750976523}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Death
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4629050540137832822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.3746624, y: 8.756952, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fe10b001285040544987f7038b511775, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -106,22 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &4629050540137832825
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4629050540137832822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.001439333, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.087046005
 --- !u!114 &4629050540137832827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +122,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _speed: 8
+  _addSpacingBeforeCollision: 0
 --- !u!114 &5037086349499325839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +135,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1677d517f83b38d44a248563e3abf30d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &-3210495349750976523
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4629050540137832822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.036572933, y: 0.029258378}
+  m_Size: {x: 1.7353721, y: 0.7844826}
+  m_Direction: 1

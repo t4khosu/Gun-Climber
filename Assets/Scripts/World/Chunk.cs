@@ -134,7 +134,7 @@ public abstract class Chunk
         int xGridPos = FindFreeXAtRGP(y);
         GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.MovingEnemyX, xGridPos, y);
         MoveHorizontally mh = enemy.GetComponent<MoveHorizontally>();
-        mh.Speed = Random.Range(5.0f, 20.0f);
+        mh.Speed = Random.Range(7.0f, 15.0f);
 
         return enemy;
     }
