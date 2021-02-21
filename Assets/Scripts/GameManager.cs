@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private float _maxCameraSpeed = 15.0f;
     private float _cameraSpeedIncreasePerSec = 0.1f;
 
+    private float _cameraLeftBound;
+    private float _cameraRightBound;
+
     private bool _fixedCamera = false;
 
     public PlayerController PlayerControllerObject{
@@ -28,6 +31,14 @@ public class GameManager : MonoBehaviour
     public float CameraSpeed{
         set{_cameraSpeed = value;}
         get{return _cameraSpeed;}
+    }
+
+    public float CameraLeftBound{
+        get{return _cameraLeftBound;}
+    }
+
+    public float CameraRightBound{
+        get{return _cameraRightBound;}
     }
 
     public bool FixedCamera{
@@ -40,6 +51,10 @@ public class GameManager : MonoBehaviour
         if(GM == null){
             GM = this;
         }
+
+        float halfCameraWidth = Camera.main.aspect * Camera.main.orthographicSize;
+        _cameraLeftBound = Camera.main.transform.position.x - halfCameraWidth;
+        _cameraRightBound = _cameraLeftBound + 2 * halfCameraWidth;
 
         _playerController = _player.GetComponent<PlayerController>();
         _playerStartY = _playerController.transform.position.y;

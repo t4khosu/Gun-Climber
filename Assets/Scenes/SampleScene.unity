@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 140249863}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.03, y: -11.651, z: 3.267911}
-  m_LocalScale: {x: 279.95477, y: 1, z: 1}
+  m_LocalScale: {x: 70, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519420032}
   m_RootOrder: 0
@@ -191,9 +191,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 6bed0a037c5551e419380cc01e929aec, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -219,8 +219,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.08, y: 0}
-  - {x: 0.08, y: 0}
+  - {x: -0.31080818, y: 0}
+  - {x: 0.30941778, y: 0}
 --- !u!1 &330056059
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 23.98086
+  orthographic size: 15.926867
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -375,8 +375,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -32, y: 24}
-  - {x: 32, y: 24}
+  - {x: -21.144548, y: 16}
+  - {x: 21.669811, y: 16}
 --- !u!1 &671318506
 GameObject:
   m_ObjectHideFlags: 0

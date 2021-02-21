@@ -46,7 +46,7 @@ public class WorldGenerator : MonoBehaviour
         _blocksTilemap = _grid.transform.Find("BlockTilemap").gameObject.GetComponent<Tilemap>();
         _cellSize = _grid.GetComponent<Grid>().cellSize;
         _topY = 0;
-        
+
         GenerateGround();
     }
 
