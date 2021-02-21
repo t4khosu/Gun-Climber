@@ -25,6 +25,8 @@ public class WorldGenerator : MonoBehaviour
     private int _topY;
     private float _cameraTop;
 
+    private Queue<Chunk> _chunks;
+
     public int LeftBound{get {return _leftBound;}}
     public int RightBound{get {return _rightBound;}}
     public Vector2 CellSize{get {return _cellSize;}}
@@ -43,6 +45,7 @@ public class WorldGenerator : MonoBehaviour
             WG = this;
         }
 
+        _chunks = new Queue<Chunk>();
         _blocksTilemap = _grid.transform.Find("BlockTilemap").gameObject.GetComponent<Tilemap>();
         _cellSize = _grid.GetComponent<Grid>().cellSize;
         _topY = 0;
@@ -66,6 +69,16 @@ public class WorldGenerator : MonoBehaviour
         Chunk chunk = GetRandomChunk();
         chunk.InitTiles(_blockTile);
         _topY = chunk.TopY;
+
+        _chunks.Enqueue(chunk);
+        DestroyUnusedChunk();
+    }
+
+    private void DestroyUnusedChunk(){
+        if(_chunks.Count >= 4){
+            Chunk chunk = _chunks.Dequeue();
+            chunk.Destroy();
+        }
     }
 
     private Chunk GetRandomChunk(){

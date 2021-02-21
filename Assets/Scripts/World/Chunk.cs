@@ -35,6 +35,12 @@ public abstract class Chunk
         }
     }
 
+    public void Destroy(){
+        foreach(Vector3Int coord in _blockCoords){
+            WorldGenerator.WG.BlocksTilemap.SetTile(coord, null);
+        }
+    }
+
     /// <summary>
     /// Generate a straight line
     /// The y position is relative, so y1 = 0 or y2 = 0 always refer to the bottom of this chunk.
