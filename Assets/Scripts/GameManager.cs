@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager GM;
     
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _shooter;
 
     private float _maxHeight = 0.0f;
     private int _destroyedBlocks = 0;
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
 
     private float _cameraLeftBound;
     private float _cameraRightBound;
+
+    private float _blocksLeftBound;
+    private float _blocksRightBound;
 
     private bool _fixedCamera = false;
 
@@ -58,11 +62,19 @@ public class GameManager : MonoBehaviour
 
         _playerController = _player.GetComponent<PlayerController>();
         _playerStartY = _playerController.transform.position.y;
+
+        _shooter.SetActive(false);
+    }
+
+    void Start(){
+        _blocksLeftBound = WorldGenerator.WG.LeftBound * WorldGenerator.WG.CellSize.x;
+        _blocksRightBound = WorldGenerator.WG.RightBound * WorldGenerator.WG.CellSize.x + WorldGenerator.WG.CellSize.x;
     }
 
     void Update(){
         SetPlayerMaxHeight();
         MoveCamera();
+        CheckSideShooter();
     }
 
     private void SetPlayerMaxHeight(){
@@ -80,7 +92,22 @@ public class GameManager : MonoBehaviour
         if(_cameraSpeed < _maxCameraSpeed){
             _cameraSpeed = Mathf.Min(_maxCameraSpeed, _cameraSpeed + _cameraSpeedIncreasePerSec * Time.deltaTime);
         }
+    }
 
+    private void CheckSideShooter(){
+        if(_playerController.transform.position.x <= _blocksLeftBound){
+            if(!_shooter.activeSelf){
+                _shooter.SetActive(true);
+                _shooter.GetComponent<SideShooterController>().Position = "left";
+            }
+        } else if(_playerController.transform.position.x > _blocksRightBound){
+            if(!_shooter.activeSelf){
+                _shooter.SetActive(true);
+                _shooter.GetComponent<SideShooterController>().Position = "right";
+            }
+        } else {
+            _shooter.SetActive(false);
+        }
     }
 
     public void IncreaseDestroyedBlocksByOne(){
