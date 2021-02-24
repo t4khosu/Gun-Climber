@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public void TryToStartGame(){
         if(!_gameStarted){
             _gameStarted = true;
-            UITextController.instance.Manual.text = "";
+            UIController.instance.Manual.text = "";
             ActivateCameraMovement();
         }
     }
@@ -88,10 +88,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void SetPlayerMaxHeight(){
-        float newHeight = _playerController.transform.position.y - _playerStartY;
+        float newHeight = (int) (_playerController.transform.position.y - _playerStartY);
 
         if(newHeight > _maxHeight){
-            UITextController.instance.Score.text = string.Concat((int) newHeight, "m");
+            UIController.instance.Score.text = string.Concat(newHeight, "m");
             _maxHeight = newHeight;
         }
         
@@ -123,6 +123,12 @@ public class GameManager : MonoBehaviour
         } else {
             _shooter.SetActive(false);
         }
+    }
+
+    public void Failed(){
+        UIController.instance.FailedCanvas.SetActive(true);
+        UIController.instance.FinalScore.text = string.Concat("Climbed Height: ", _maxHeight, "m");
+        DeactivateCameraMovement();
     }
 
     public void IncreaseDestroyedBlocksByOne(){

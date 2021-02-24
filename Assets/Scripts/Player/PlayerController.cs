@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
         if(other.tag == "Death"){
             gameObject.SetActive(false);
-            GameManager.GM.DeactivateCameraMovement();
+            GameManager.GM.Failed();
         }
     }
 }

@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UITextController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
 
-    public static UITextController instance { get; set; }
+    public static UIController instance { get; set; }
 
     public TextMeshProUGUI Manual;
     public TextMeshProUGUI Score;
+    public TextMeshProUGUI FinalScore;
+    public GameObject FailedCanvas;
     
     void Awake()
     {
         instance = this;
+        FailedCanvas.SetActive(false);
     }
 
     void Update()
