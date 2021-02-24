@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _shooter;
 
-    private float _maxHeight = 0.0f;
+    private bool _gameStarted = false;
+
+    private float _maxHeight = -1.0f;
     private int _destroyedBlocks = 0;
     private PlayerController _playerController;
     private float _playerStartY = 0.0f;
@@ -50,6 +52,14 @@ public class GameManager : MonoBehaviour
         get {return _fixedCamera;}
     }
 
+    public void TryToStartGame(){
+        if(!_gameStarted){
+            _gameStarted = true;
+            UITextController.instance.Manual.text = "";
+            ActivateCameraMovement();
+        }
+    }
+
     void Awake()
     {
         if(GM == null){
@@ -79,7 +89,12 @@ public class GameManager : MonoBehaviour
 
     private void SetPlayerMaxHeight(){
         float newHeight = _playerController.transform.position.y - _playerStartY;
-        _maxHeight = Mathf.Max(_maxHeight, newHeight);
+
+        if(newHeight > _maxHeight){
+            UITextController.instance.Score.text = string.Concat((int) newHeight, "m");
+            _maxHeight = newHeight;
+        }
+        
     }
 
     private void MoveCamera(){
