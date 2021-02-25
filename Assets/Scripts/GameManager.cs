@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _shooter;
 
     private bool _gameStarted = false;
+    private bool _failed = false;
 
     private float _maxHeight = -1.0f;
     private int _destroyedBlocks = 0;
@@ -85,6 +87,10 @@ public class GameManager : MonoBehaviour
         SetPlayerMaxHeight();
         MoveCamera();
         CheckSideShooter();
+
+        if(_failed && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))){
+            SceneManager.LoadScene("Game");
+        }
     }
 
     private void SetPlayerMaxHeight(){
@@ -126,6 +132,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void Failed(){
+        _failed = true;
+
         UIController.instance.FailedCanvas.SetActive(true);
         UIController.instance.FinalScore.text = string.Concat("Climbed Height: ", _maxHeight, "m");
         DeactivateCameraMovement();
