@@ -220,7 +220,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4352
   _onGroundMoveSpeed: 14
-  _inAirMoveSpeed: 14
+  _inAirMoveSpeed: 16
   _jumpVelocity: 14
   _shootForce: 22
   _bulletSpeed: 20
