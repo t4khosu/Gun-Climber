@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _shooter;
-
+    
     private bool _gameStarted = false;
     private bool _failed = false;
 
@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     private float _blocksRightBound;
 
     private bool _fixedCamera = false;
+
+    
 
     public PlayerController PlayerControllerObject{
         get{return _playerController;}

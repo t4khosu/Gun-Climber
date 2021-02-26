@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float maxSecAlive;
     [SerializeField] private LayerMask _solidLayer;
+    [SerializeField] private AudioClip _collideClip;
     
     private float _timeAlive;
     private float _speed;
@@ -52,10 +53,10 @@ public class BulletController : MonoBehaviour
 
             DestroyBlockAt(tilePosition);
             Destroy(gameObject); 
+            SoundManager.instance.PlaySound(_collideClip);
         }else if(other.gameObject.layer == LayerMask.NameToLayer("Platform")){
             Destroy(gameObject); 
         }
-        
     }
 
     private void DestroyBlockAt(Vector2 position){

@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _shootForce;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private GameObject _bulletPrefab;
+
+    [SerializeField] private AudioClip _shootClip;
+    [SerializeField] private AudioClip _failClip;
     
     private float _moveDir = 0;
     private float _lookDir = 0;
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot(){
         GameManager.GM.TryToStartGame();
+        SoundManager.instance.PlaySound(_shootClip);
         
         Vector2 direction = (Vector2) (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
         direction.Normalize();
@@ -155,6 +159,7 @@ public class PlayerController : MonoBehaviour
 
         if(other.tag == "Death"){
             gameObject.SetActive(false);
+            SoundManager.instance.PlaySound(_failClip);
             GameManager.GM.Failed();
         }
     }
