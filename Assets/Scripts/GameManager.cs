@@ -134,9 +134,23 @@ public class GameManager : MonoBehaviour
     public void Failed(){
         _failed = true;
 
+        int highscore = SetAndGetHighscore();
         UIController.instance.FailedCanvas.SetActive(true);
+        UIController.instance.Highscore.text = string.Concat("Highscore: ", highscore, "m");
         UIController.instance.FinalScore.text = string.Concat("Climbed Height: ", _maxHeight, "m");
         DeactivateCameraMovement();
+    }
+
+    private int SetAndGetHighscore(){
+        int highscore = 0;
+        if(PlayerPrefs.HasKey("highscore")){
+            highscore = PlayerPrefs.GetInt("highscore");
+        }
+        highscore = (int) Mathf.Max(_maxHeight, highscore);
+        PlayerPrefs.SetInt("highscore", highscore);
+        PlayerPrefs.Save();
+
+        return highscore;
     }
 
     public void IncreaseDestroyedBlocksByOne(){

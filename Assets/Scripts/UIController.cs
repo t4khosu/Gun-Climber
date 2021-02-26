@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI Manual;
     public TextMeshProUGUI Score;
     public TextMeshProUGUI FinalScore;
+    public TextMeshProUGUI Highscore;
     public GameObject FailedCanvas;
     
     void Awake()
