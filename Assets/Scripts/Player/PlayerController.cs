@@ -13,16 +13,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpVelocity;
     [SerializeField] private float _shootForce;
     [SerializeField] private float _bulletSpeed;
+    [SerializeField] private GameObject _gunPrefab;
     [SerializeField] private GameObject _bulletPrefab;
 
     [SerializeField] private AudioClip _shootClip;
     [SerializeField] private AudioClip _failClip;
     
     private float _moveDir = 0;
-    private float _lookDir = 0;
+    private float _lookDir = -1;
     private bool _jump = false;
     private bool _shoot = false;
     private bool _isInvincible = false;
+    private GunController _gunController;
 
     private float _spriteWidth;
 
@@ -54,6 +56,7 @@ public class PlayerController : MonoBehaviour
         _boxCollider = transform.GetComponent<BoxCollider2D>();
         _animator = GetComponent<Animator>();
         _spriteWidth = GetComponent<SpriteRenderer>().bounds.size.x;
+        _gunController = _gunPrefab.GetComponent<GunController>();
     }
 
     void Update()
@@ -64,6 +67,7 @@ public class PlayerController : MonoBehaviour
 
         if(_moveDir != 0){
             _lookDir = _moveDir < 0 ? -1 : 1;
+            _gunController.Flip(_lookDir);
         }
 
         _animator.SetFloat("Look Direction", _lookDir);
