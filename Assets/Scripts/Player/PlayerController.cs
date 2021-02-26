@@ -88,15 +88,6 @@ public class PlayerController : MonoBehaviour
             Shoot();
             _shoot = false;
         }
-
-        if(AtCameraEdge()){
-            _rb2d.velocity *= Vector2.up;
-        }
-    }
-
-    private bool AtCameraEdge(){
-        return (transform.position.x <= GameManager.GM.CameraLeftBound + _spriteWidth
-        ) || (transform.position.x >= GameManager.GM.CameraRightBound - _spriteWidth);
     }
 
     private void Shoot(){

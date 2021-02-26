@@ -224,8 +224,11 @@ MonoBehaviour:
   _jumpVelocity: 14
   _shootForce: 22
   _bulletSpeed: 20
+  _gunPrefab: {fileID: 106240897}
   _bulletPrefab: {fileID: 2341427447573754347, guid: f63bb58a7d7b53b4988f2cfe521f893b,
     type: 3}
+  _shootClip: {fileID: 8300000, guid: d4a4f49543e07204a971fa12bc6fdbaa, type: 3}
+  _failClip: {fileID: 8300000, guid: ed2779b748d8dab4d976b71aff83faf7, type: 3}
 --- !u!61 &18867781
 BoxCollider2D:
   m_ObjectHideFlags: 0
