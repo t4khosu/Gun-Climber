@@ -166,4 +166,8 @@ public class GameManager : MonoBehaviour
     public void DeactivateCameraMovement(){
         _cameraStarted = false;
     }
+
+    public float GetRandomValue(){
+        return _maxHeight / 400;
+    }
 }

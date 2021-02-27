@@ -250,28 +250,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4875621615248291637, guid: d35b9de8b33c3c54793a0a5e21db76fb,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 498.46564
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875621615248291637, guid: d35b9de8b33c3c54793a0a5e21db76fb,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.0000038146973
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875621615248291637, guid: d35b9de8b33c3c54793a0a5e21db76fb,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -145
-      objectReference: {fileID: 0}
-    - target: {fileID: 4875621615248291639, guid: d35b9de8b33c3c54793a0a5e21db76fb,
-        type: 3}
-      propertyPath: m_text
-      value: '[Arrow Keys] Move and Jump
-
-        [Left Click] Shoot and Start Game'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d35b9de8b33c3c54793a0a5e21db76fb, type: 3}
 --- !u!1001 &849783590283157983

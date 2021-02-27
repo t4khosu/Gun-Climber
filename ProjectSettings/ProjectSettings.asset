@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Christian Staudte
   productName: Gun Climber
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -20,11 +20,11 @@ PlayerSettings:
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
-  m_SplashScreenAnimation: 1
+  m_SplashScreenAnimation: 2
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 0
-  m_SplashScreenBackgroundAnimationZoom: 1
-  m_SplashScreenLogoAnimationZoom: 1
+  m_SplashScreenDrawMode: 1
+  m_SplashScreenBackgroundAnimationZoom: 0
+  m_SplashScreenLogoAnimationZoom: 0.19
   m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1
   m_SplashScreenBackgroundLandscapeUvs:
@@ -39,7 +39,11 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
+    duration: 2
+  - logo: {fileID: 0}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 928
@@ -124,7 +128,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.1
+  bundleVersion: 0.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -538,7 +542,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Minimal
+  webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1

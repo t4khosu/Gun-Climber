@@ -133,40 +133,43 @@ public abstract class Chunk
             }
         }
 
-        if(xGridPos == WorldGenerator.WG.LeftBound){
-            Debug.Log("Problem");
-            Debug.Log("Number of Tiles in this line: " + tilesAtY.Count);
-            foreach(Vector3Int tile in tilesAtY){
-                Debug.Log(tile.x + " | " + tile.y);
-            }
-        }
-
         return xGridPos;
     }
 
     protected GameObject InstantiateMovingEnemyXAtRGP(int y){
-        
         int xGridPos = FindFreeXAtRGP(y);
-        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.MovingEnemyX, xGridPos, y);
-        MoveHorizontally mh = enemy.GetComponent<MoveHorizontally>();
-        mh.Speed = Random.Range(7.0f, 15.0f);
-
+        GameObject enemy = InstantiateEnemyAtPosition(WorldGenerator.WG.MovingEnemyX, xGridPos, y);
+        
+        if(enemy != null){
+            MoveHorizontally mh = enemy.GetComponent<MoveHorizontally>();
+            mh.Speed = Random.Range(7.0f, 15.0f);
+        }
+        
         return enemy;
     }
 
     protected GameObject InstantiateStaticEnemyAtRGP(int x, int y){
-        return InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, x, y);
+        return InstantiateEnemyAtPosition(WorldGenerator.WG.StaticEnemy, x, y);
     }
 
     protected GameObject InstantiateFollowingEnemyAtRandomRGP(int y){
         int xGridPos = FindFreeXAtRGP(y);
-        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.FollowingEnemy, xGridPos, y);
-        return enemy;
+        return InstantiateEnemyAtPosition(WorldGenerator.WG.FollowingEnemy, xGridPos, y);
     }
 
     protected GameObject InstantiateStaticEnemyAtRandomRGP(int y){
         int xGridPos = FindFreeXAtRGP(y);
-        GameObject enemy = InstantiateAtRGP(WorldGenerator.WG.StaticEnemy, xGridPos, y);
+        return InstantiateEnemyAtPosition(WorldGenerator.WG.StaticEnemy, xGridPos, y);
+    }
+
+    protected GameObject InstantiateEnemyAtPosition(GameObject enemyPrefab, int x, int y){
+        float randomValue = Random.Range(0.0f, 1.0f);
+        GameObject enemy = null;
+
+        if(randomValue < GameManager.GM.GetRandomValue()){
+            enemy = InstantiateAtRGP(enemyPrefab, x, y);
+        }
+
         return enemy;
     }
 
