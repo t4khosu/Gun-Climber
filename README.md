@@ -1,5 +1,5 @@
 # Gun-Climber
-In this game you play as a character that has to move up a tower by shooting a gun. The force of the gun makes your character jump into the air. However, you must be careful! There are many enemies that will try to kill you.
+In this game you play as a character that has to move up a tower by shooting a gun. The force of the gun makes your character jump into the air. However, you must be careful! There are many enemies that will try to kill you. How far up will you be able to climb?
 
 ## Programs
 
