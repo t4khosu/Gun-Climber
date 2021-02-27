@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5ead3e0611ba94a8a5c77c7ea0c098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _zapClip: {fileID: 8300000, guid: 6c05fd1d6c7b15c43b952d9e6eaa55cb, type: 3}

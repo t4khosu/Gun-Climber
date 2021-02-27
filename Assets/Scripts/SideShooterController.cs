@@ -8,7 +8,7 @@ public class SideShooterController : MonoBehaviour
     private string _position = "";
     private float _halfWidth = 0.0f;
     
-    private const float MAX_TIMER = 0.7f;
+    private float _max_timer = 0.7f;
     private float _time = 0.0f;
 
     public string Position{
@@ -25,8 +25,9 @@ public class SideShooterController : MonoBehaviour
     void Update()
     {
         _time += Time.deltaTime;
-        if(_time >= MAX_TIMER){
+        if(_time >= _max_timer){
             _time = 0.0f;
+            _max_timer = Mathf.Max(0.25f, _max_timer - 0.005f);
             SpawnLaserParticle();
         }
     }
