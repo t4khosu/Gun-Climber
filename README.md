@@ -4,7 +4,7 @@ In this game you play as a character that has to move up a tower by shooting a g
 ## Programs
 
 * Development: Unity 2019.4.17f1
-* Sprites: Aseprite 
+* Sprites: [Aseprite](https://www.aseprite.org/) 
 * Sounds: [ChipTone](https://sfbgames.itch.io/chiptone)
 
 ## Finished Prototype
