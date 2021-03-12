@@ -90,8 +90,13 @@ public class GameManager : MonoBehaviour
         MoveCamera();
         CheckSideShooter();
 
-        if(_failed && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))){
-            SceneManager.LoadScene("Game");
+        if(_failed){
+            bool pressedEnter = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter);
+            bool pressedLeftClick = Input.GetMouseButtonDown(0);
+            bool pressedSpace = Input.GetKeyDown("space");
+            if(pressedEnter || pressedLeftClick || pressedSpace){
+                SceneManager.LoadScene("Game");
+            }
         }
     }
 
