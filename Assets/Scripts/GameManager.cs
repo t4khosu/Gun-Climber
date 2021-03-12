@@ -92,9 +92,8 @@ public class GameManager : MonoBehaviour
 
         if(_failed){
             bool pressedEnter = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter);
-            bool pressedLeftClick = Input.GetMouseButtonDown(0);
             bool pressedSpace = Input.GetKeyDown("space");
-            if(pressedEnter || pressedLeftClick || pressedSpace){
+            if(pressedEnter || pressedSpace){
                 SceneManager.LoadScene("Game");
             }
         }
