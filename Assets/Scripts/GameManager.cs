@@ -122,6 +122,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void CheckSideShooter(){
+        if(_failed){
+            return;
+        }
+
         if(_playerController.transform.position.x <= _blocksLeftBound){
             if(!_shooter.activeSelf){
                 _shooter.SetActive(true);
@@ -173,5 +177,9 @@ public class GameManager : MonoBehaviour
 
     public float GetRandomValue(){
         return _maxHeight / 400;
+    }
+
+    public void DeactivateShooter(){
+        _shooter.SetActive(false);
     }
 }

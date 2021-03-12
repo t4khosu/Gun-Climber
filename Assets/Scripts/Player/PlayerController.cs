@@ -155,6 +155,7 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Death"){
             gameObject.SetActive(false);
             SoundManager.instance.PlaySound(_failClip);
+            GameManager.GM.DeactivateShooter();
             GameManager.GM.Failed();
         }
     }
